@@ -63,6 +63,13 @@ namespace Triangle.Elements
                 && IsIsoscelesTriangle() == false
                 && IsRightTriangle() == false;
         }
+        public double calculatePerimeter()
+        {
+            double firstSide = firstPoint.calculeDistance(secondPoint);
+            double secondSide = secondPoint.calculeDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            return firstSide + secondSide + thirdSide;
+        }
         public void toString()
         {
             Console.Write("#1: ");
