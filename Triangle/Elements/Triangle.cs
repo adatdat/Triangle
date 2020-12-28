@@ -23,6 +23,7 @@ namespace Triangle.Elements
 
         public TriangleModel(Point firstPointInput, Point secondPointInput, Point thirdPointInput)
         {
+            TrowExceptionIfSideIsZero(firstPointInput, secondPointInput, thirdPointInput);
             if (IsTriangle(firstPointInput, secondPointInput, thirdPointInput) == false)
                 throw new ArgumentException($"Triangle with points: A={firstPointInput}, B={secondPointInput} and C={thirdPointInput} does not exist");
             firstPoint = firstPointInput;
@@ -33,6 +34,35 @@ namespace Triangle.Elements
         {
             return firstPointInput.calculeDistance(secondPointInput) < thirdPointInput.calculeDistance(secondPointInput) + thirdPointInput.calculeDistance(firstPointInput);
         }
+        private bool IsEquilateralTriangle()
+        {
+            double firstSide = firstPoint.calculeDistance(secondPoint);
+            double secondSide = secondPoint.calculeDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            return firstSide == secondSide && secondSide == thirdSide && thirdSide == firstSide;
+        }
+        private bool IsIsoscelesTriangle()
+        {
+            double firstSide = firstPoint.calculeDistance(secondPoint);
+            double secondSide = secondPoint.calculeDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            return firstSide == secondSide || secondSide == thirdSide || thirdSide == firstSide;
+        }
+        private bool IsRightTriangle()
+        {
+            double firstSide = firstPoint.calculeDistance(secondPoint);
+            double secondSide = secondPoint.calculeDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            return Math.Pow(firstSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(thirdSide, 2)
+                || Math.Pow(secondSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(thirdSide, 2)
+                || Math.Pow(thirdSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(firstSide, 2);
+        }
+        private bool IsScaleneTriangle()
+        {
+            return IsEquilateralTriangle() == false
+                && IsIsoscelesTriangle() == false
+                && IsRightTriangle() == false;
+        }
         public void toString()
         {
             Console.Write("#1: ");
@@ -41,6 +71,13 @@ namespace Triangle.Elements
             secondPoint.toString();
             Console.Write("#3: ");
             thirdPoint.toString();
+        }
+        private void TrowExceptionIfSideIsZero(Point firstPointInput, Point secondPointInput, Point thirdPointInput)
+        {
+            if (firstPointInput.isZeroValueDistance(secondPointInput) == false 
+                || thirdPointInput.isZeroValueDistance(secondPointInput) == false
+                || thirdPointInput.isZeroValueDistance(firstPointInput) == false)
+                throw new ArgumentException($"Have a side value is 0, must more 0");
         }
     }
 }

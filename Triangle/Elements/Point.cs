@@ -33,6 +33,10 @@ namespace Triangle.Elements
             distance = Math.Sqrt(distance);
             return distance;
         }
+        public bool isZeroValueDistance(Point secondPoint)
+        {
+            return this.calculeDistance(secondPoint) == 0;
+        }
         public bool comparerPoint(Point secondPoint)
         {
             bool lesPointsSontIdentiques = false;
