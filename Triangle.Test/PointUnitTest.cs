@@ -22,7 +22,7 @@ namespace Triangle.Test
         {
             _point.coordinateX = firstPointCoordinateX;
             _point.coordinateY = firstPointCoordinateY;
-            Point secondPoint = new(secondPointCoordinateX, secondPointCoordinateY);
+            Point secondPoint = new Point(secondPointCoordinateX, secondPointCoordinateY);
             Assert.AreEqual(distance, _point.calculateDistance(secondPoint));
         }
     }
