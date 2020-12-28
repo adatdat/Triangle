@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Triangle.Elements
+namespace Triangle
 {
-    class Point
+    public class Point
     {
         private int _coordinateX;
         private int _coordinateY;

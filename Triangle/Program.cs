@@ -1,9 +1,8 @@
 ﻿using System;
-using Triangle.Elements;
 
 namespace Triangle
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

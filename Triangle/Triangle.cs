@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Triangle.Elements
+namespace Triangle
 {
-    class TriangleModel
+    public class TriangleModel
     {
         private Point _firstPoint;
         private Point _secondPoint;
