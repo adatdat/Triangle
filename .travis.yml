@@ -1,2 +1,8 @@
 language: csharp
 solution: Triangle.sln
+install:
+  - nuget restore Triangle.sln
+  - nuget install NUnit.Console -Version 3.12.0 -OutputDirectory testrunner
+script:
+  - msbuild /p:Configuration=Release Triangle.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe ./Triangle.Test/bin/Release/Triangle.Test.dll

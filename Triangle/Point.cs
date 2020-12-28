@@ -23,7 +23,7 @@ namespace Triangle
         {
             Console.WriteLine("Point value" + " : (" + this.coordinateX + ", " + this.coordinateY + ")");
         }
-        public double calculeDistance(Point secondPoint)
+        public double calculateDistance(Point secondPoint)
         {
             double distance;
             distance = (this.coordinateX - secondPoint.coordinateX) * (this.coordinateX - secondPoint.coordinateX);
@@ -33,7 +33,7 @@ namespace Triangle
         }
         public bool isZeroValueDistance(Point secondPoint)
         {
-            return this.calculeDistance(secondPoint) == 0;
+            return this.calculateDistance(secondPoint) == 0;
         }
         public bool comparerPoint(Point secondPoint)
         {

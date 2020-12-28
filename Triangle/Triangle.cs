@@ -30,27 +30,27 @@ namespace Triangle
         }
         public bool IsTriangle(Point firstPointInput, Point secondPointInput, Point thirdPointInput)
         {
-            return firstPointInput.calculeDistance(secondPointInput) < thirdPointInput.calculeDistance(secondPointInput) + thirdPointInput.calculeDistance(firstPointInput);
+            return firstPointInput.calculateDistance(secondPointInput) < thirdPointInput.calculateDistance(secondPointInput) + thirdPointInput.calculateDistance(firstPointInput);
         }
         public bool IsEquilateralTriangle()
         {
-            double firstSide = firstPoint.calculeDistance(secondPoint);
-            double secondSide = secondPoint.calculeDistance(thirdPoint);
-            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            double firstSide = firstPoint.calculateDistance(secondPoint);
+            double secondSide = secondPoint.calculateDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculateDistance(firstPoint);
             return firstSide == secondSide && secondSide == thirdSide && thirdSide == firstSide;
         }
         public bool IsIsoscelesTriangle()
         {
-            double firstSide = firstPoint.calculeDistance(secondPoint);
-            double secondSide = secondPoint.calculeDistance(thirdPoint);
-            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            double firstSide = firstPoint.calculateDistance(secondPoint);
+            double secondSide = secondPoint.calculateDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculateDistance(firstPoint);
             return firstSide == secondSide || secondSide == thirdSide || thirdSide == firstSide;
         }
         public bool IsRightTriangle()
         {
-            double firstSide = firstPoint.calculeDistance(secondPoint);
-            double secondSide = secondPoint.calculeDistance(thirdPoint);
-            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            double firstSide = firstPoint.calculateDistance(secondPoint);
+            double secondSide = secondPoint.calculateDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculateDistance(firstPoint);
             return Math.Pow(firstSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(thirdSide, 2)
                 || Math.Pow(secondSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(thirdSide, 2)
                 || Math.Pow(thirdSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(firstSide, 2);
@@ -63,9 +63,9 @@ namespace Triangle
         }
         public double calculatePerimeter()
         {
-            double firstSide = firstPoint.calculeDistance(secondPoint);
-            double secondSide = secondPoint.calculeDistance(thirdPoint);
-            double thirdSide = thirdPoint.calculeDistance(firstPoint);
+            double firstSide = firstPoint.calculateDistance(secondPoint);
+            double secondSide = secondPoint.calculateDistance(thirdPoint);
+            double thirdSide = thirdPoint.calculateDistance(firstPoint);
             return firstSide + secondSide + thirdSide;
         }
         public void toString()
